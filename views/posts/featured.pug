@@ -1,19 +1,19 @@
 .p-4.p-md-5.mb-4.rounded.text-bg-dark
     .col-md-6.px-0
-        h1.display-4.fst-italic Title of a longer featured blog post
+        h1.display-4.fst-italic #{ featuredPosts[0].title }
         p.lead.my-3
-            | Multiple lines of text that form the lede, informing new readers quickly and efficiently about what&rsquo;s most interesting in this post&rsquo;s contents.
+            | #{ featuredPosts[0].body.split('.').slice(0, 4).join('. ')}
         p.lead.mb-0
             a.text-white.fw-bold(href='#') Continue reading...
 .row.mb-2
     .col-md-6
         .row.g-0.border.rounded.overflow-hidden.flex-md-row.mb-4.shadow-sm.h-md-250.position-relative
             .col.p-4.d-flex.flex-column.position-static
-                strong.d-inline-block.mb-2.text-primary World
-                h3.mb-0 Featured post
-                .mb-1.text-muted Nov 12
+                strong.d-inline-block.mb-2.text-primary #{ featuredPosts[1].category }
+                h3.mb-0 #{ featuredPosts[1].title.split(' ').slice(0, 3).join(' ') }
+                .mb-1.text-muted #{ new Date(featuredPosts[1].created_at).toLocaleString('default', { month: 'short' }) } #{ new Date(featuredPosts[1].created_at).getDate() < 10 ? '0' + new Date(featuredPosts[1].created_at).getDate() : new Date(featuredPosts[1].created_at).getDate() }
                 p.card-text.mb-auto
-                    | This is a wider card with supporting text below as a natural lead-in to additional content.
+                    | #{ featuredPosts[1].body.split('.').slice(0, 2).join('. ')}
                 a.stretched-link(href='#') Continue reading
             .col-auto.d-none.d-lg-block
                 svg.bd-placeholder-img(width='200' height='250' xmlns='http://www.w3.org/2000/svg' role='img' aria-label='Placeholder: Thumbnail' preserveaspectratio='xMidYMid slice' focusable='false')
@@ -23,11 +23,11 @@
     .col-md-6
         .row.g-0.border.rounded.overflow-hidden.flex-md-row.mb-4.shadow-sm.h-md-250.position-relative
             .col.p-4.d-flex.flex-column.position-static
-                strong.d-inline-block.mb-2.text-success Design
-                h3.mb-0 Post title
-                .mb-1.text-muted Nov 11
+                strong.d-inline-block.mb-2.text-success #{ featuredPosts[2].category }
+                h3.mb-0 #{ featuredPosts[2].title.split(' ').slice(0, 3).join(' ') }
+                .mb-1.text-muted #{ new Date(featuredPosts[2].created_at).toLocaleString('default', { month: 'short' }) } #{ new Date(featuredPosts[2].created_at).getDate() < 10 ? '0' + new Date(featuredPosts[2].created_at).getDate() : new Date(featuredPosts[2].created_at).getDate() }
                 p.mb-auto
-                    | This is a wider card with supporting text below as a natural lead-in to additional content.
+                    | #{ featuredPosts[2].body.split('.').slice(0, 2).join('. ')}
                 a.stretched-link(href='#') Continue reading
             .col-auto.d-none.d-lg-block
                 svg.bd-placeholder-img(width='200' height='250' xmlns='http://www.w3.org/2000/svg' role='img' aria-label='Placeholder: Thumbnail' preserveaspectratio='xMidYMid slice' focusable='false')
